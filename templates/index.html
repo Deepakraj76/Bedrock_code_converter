@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .code-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .code-box {
+            width: 48%;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+        pre {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Code Converter</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <select name="language">
+                <option value="javascript">Python to JavaScript</option>
+                <option value="python">Node.js to Python (Flask)</option>
+            </select>
+            <button type="submit">Convert</button>
+        </form>
+        
+        {% if original_code and converted_code %}
+        <div class="code-container">
+            <div class="code-box">
+                <h3>Original Code:</h3>
+                <pre>{{ original_code }}</pre>
+            </div>
+            <div class="code-box">
+                <h3>Converted Code:</h3>
+                <pre>{{ converted_code }}</pre>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
