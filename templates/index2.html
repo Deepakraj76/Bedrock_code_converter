@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        input[type="file"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .code-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .code-box {
+            width: 48%;
+            padding: 10px;
+            background-color: #f7f7f7;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            overflow-x: auto;
+        }
+        pre {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Code Converter</h1>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file">
+            <select name="language">
+                <option value="javascript">JavaScript</option>
+                <option value="python">Python</option>
+            </select>
+            <input type="checkbox" name="execute"> Execute Code
+            <input type="submit" value="Upload">
+        </form>
+        
+        <h2>Original Code</h2>
+        <pre>{{ original_code }}</pre>
+        
+        <h2>Converted Code</h2>
+        <pre>{{ converted_code }}</pre>
+        
+        <h2>Conversation Log</h2>
+        <pre>{{ conversation_log }}</pre>
+        
+    </div>
+</body>
+</html>
